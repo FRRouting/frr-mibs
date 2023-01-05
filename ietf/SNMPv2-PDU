@@ -75,7 +75,7 @@ SNMPv2-Trap-PDU ::= [7] IMPLICIT PDU
 
 Report-PDU ::= [8] IMPLICIT PDU
 
-max-bindings INTEGER ::= 2147483647
+-- max-bindings INTEGER ::= 2147483647
 
 PDU ::= SEQUENCE {
         request-id INTEGER (-2147483648..2147483647),
@@ -104,7 +104,7 @@ PDU ::= SEQUENCE {
             },
 
         error-index                 -- sometimes ignored
-            INTEGER (0..max-bindings),
+            INTEGER (0..2147483647),
 
         variable-bindings           -- values are sometimes ignored
             VarBindList
@@ -113,11 +113,12 @@ PDU ::= SEQUENCE {
 BulkPDU ::=                         -- must be identical in
     SEQUENCE {                      -- structure to PDU
         request-id      INTEGER (-2147483648..2147483647),
-        non-repeaters   INTEGER (0..max-bindings),
-        max-repetitions INTEGER (0..max-bindings),
+        non-repeaters   INTEGER (0..2147483647),
+        max-repetitions INTEGER (0..2147483647),
 
         variable-bindings           -- values are ignored
-            VarBindList
+            -- VarBindList
+	    SEQUENCE (SIZE (0..2147483647)) OF VarBind
     }
 
 -- variable binding
@@ -140,6 +141,6 @@ VarBind ::= SEQUENCE {
 
 -- variable-binding list
 
-VarBindList ::= SEQUENCE (SIZE (0..max-bindings)) OF VarBind
+-- VarBindList ::= SEQUENCE (SIZE (0..2147483647)) OF VarBind
 
 END
