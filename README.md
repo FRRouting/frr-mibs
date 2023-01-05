@@ -18,8 +18,10 @@ IETF
 > **NOTE**
 > IETF MIBs can be extracted with `smistrip`.
 
-- IPATM-IPMC-MIB (RFC 2417)
+- IPATM-IPMC-MIB (RFC 2417 + errata 448)
   * URL: https://datatracker.ietf.org/doc/rfc2417/
+  * Errata URL: https://www.rfc-editor.org/errata/eid448
 
-- SNMPv2-PDU (RFC 3416)
+- SNMPv2-PDU (RFC 3416 + errata 2757)
   * URL: https://datatracker.ietf.org/doc/rfc3416/
+  * Errata URL: https://www.rfc-editor.org/errata/eid2757

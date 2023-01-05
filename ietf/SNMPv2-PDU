@@ -78,7 +78,7 @@ Report-PDU ::= [8] IMPLICIT PDU
 max-bindings INTEGER ::= 2147483647
 
 PDU ::= SEQUENCE {
-        request-id INTEGER (-214783648..214783647),
+        request-id INTEGER (-2147483648..2147483647),
 
         error-status                -- sometimes ignored
             INTEGER {
@@ -112,7 +112,7 @@ PDU ::= SEQUENCE {
 
 BulkPDU ::=                         -- must be identical in
     SEQUENCE {                      -- structure to PDU
-        request-id      INTEGER (-214783648..214783647),
+        request-id      INTEGER (-2147483648..2147483647),
         non-repeaters   INTEGER (0..max-bindings),
         max-repetitions INTEGER (0..max-bindings),
 
